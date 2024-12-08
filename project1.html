@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+        background-color:black;
+
+      }
+      #cursor {
+        height: 30px;
+        width: 30px;
+        background-color: white;
+        border-radius: 50%;
+        position: fixed;
+        font-size: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        z-index: 9;
+      }
+      #image {
+        height: 35vh;
+        width: 35vw;
+        background-color: aliceblue; 
+      }
+      #image img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        position: relative;
+      }
+      #overlay{
+        background-color:transparent;
+        height: 35%;
+        width: 35%;
+        z-index: 10;
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="cursor"></div>
+    <div id="main">
+        <div id="image">
+          <div id="overlay"></div>
+        <img src="./img/forest.jpg" alt="forestimage">
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      let main = document.querySelector("#main");
+      let cursor = document.querySelector("#cursor");
+      let image = document.querySelector("#image");
+      main.addEventListener("mousemove", (e) => {
+        gsap.to(cursor, {
+          x: e.x,
+          y: e.y,
+          backgroudnColor:"white",
+        });
+      });
+      image.addEventListener("mouseenter", () => {
+        cursor.innerHTML ="view More"
+        image.style.boxShadow = '10px 10px 12px red';
+        gsap.to(cursor, {
+          scale: 3,
+          backgroudnColor:"#ffffff52",
+        });
+      });
+      image.addEventListener("mouseleave", () => {
+        cursor.innerHTML =""
+        image.style.boxShadow = '';
+        gsap.to(cursor, {
+          scale:1,
+          backgroudnColor:"#fff",
+        });
+      });
+    </script>
+  </body>
+</html>
