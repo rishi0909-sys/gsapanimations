@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        color: white;
+      }
+      body {
+        height: 100dvh;
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Raleway", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 600;
+        font-style: normal;
+      }
+      h1 {
+        font-size: 100px;
+        overflow: hidden;
+      }
+      h1 span {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Rishabh</h1>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      function BreakText() {
+        let h1 = document.querySelector("h1");
+        let h1Text = document.querySelector("h1").textContent;
+        let splittedText = h1Text.split("");
+        let clutter = "";
+        splittedText.forEach(function (Element, index) {
+          const HalfValue = Math.floor(splittedText.length / 2);
+          if (index < HalfValue) {
+            console.log(Element);
+            clutter += `<span class="a">${Element}</span>`;
+          } else {
+            console.log(Element);
+            clutter += `<span class="b">${Element}</span>`;
+          }
+        });
+        h1.innerHTML = clutter;
+      }
+      BreakText();
+
+      gsap.from(".a", {
+        y: 100,
+        duration: 1,
+        opacity: 0,
+        delay: 0.5,
+        stagger: 0.2,
+      });
+      gsap.from(".b", {
+        y:100,
+        duration: 1,
+        opacity: 0,
+        delay: 0.5,
+        stagger:-0.2,
+      });
+    </script>
+  </body>
+</html>
