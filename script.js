@@ -56,22 +56,22 @@ tl2.from(".elem.line1.left",{
   opacity:0,
   x:-300,
   duration:1.5
-},"first")
+},"2","first")
 tl2.from(".elem.line1.right",{
   opacity:0,
   x: 300,
   duration:1.5
-},"first")
+},"2","first")
 tl2.from(".elem.line2.left",{
   opacity:0,
   x:-300,
   duration:1.5
-},"second")
+},"2","second")
 tl2.from(".elem.line2.right",{
   opacity:0,
   x: 300,
   duration:1.5
-},"second")
+},"2","second")
 let tl3 =gsap.timeline({
   scrollTrigger:{
     trigger:"#section3",
