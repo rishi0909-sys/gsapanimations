@@ -42,15 +42,16 @@ let tl2 = gsap.timeline({
   scrollTrigger:{
     trigger:"#section2 .services",
     scroller:"body",
-    start:"top 70%",
+    start:"top 55%",
     end:"top -50",
     scrub:2,
-    // markers:true,
+    markers:true,
   },
 })
 tl2.from(".services",{
-  x:30,
+  x:300,
   opacity:0,
+  duration:1
 })
 tl2.from(".elem.line1.left",{
   opacity:0,
@@ -86,7 +87,7 @@ tl3.from(".article",{
   y:-300,
   opacity:0,
   duration:0.8
-})
+},"0.5")
 let tl4 = gsap.timeline({
   scrollTrigger:{
     trigger:".Case-Study",
@@ -94,14 +95,13 @@ let tl4 = gsap.timeline({
     start:"top 90%",
     end:"top -50",
     scrub:2,
-    // markers:true,
   },
 })
 tl4.from(".Case-Study",{
   y:-200,
   duration:1.2,
-  opacity:0
-})
+  opacity:0,
+},"2")
 tl4.from(".spec1",{
   x:-300,
   duration:1.2,
@@ -111,9 +111,9 @@ tl4.from(".spec2",{
   y:-300,
   duration:1.2,
   opacity:0
-})
+},"3")
 tl4.from(".spec3",{
   x:300,
   duration:1.2,
   opacity:0
-})
+},"4")
